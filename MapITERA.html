@@ -1,0 +1,157 @@
+<html>
+<head>
+    <title>Belajar WebGis</title>
+    <!-- LEAFLET CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map{
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body> </body>
+    <div id="map"></div>
+
+
+    <!-- LEAFLET JAVASCRIPT -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+    <!-- LOKASI KAJIAN -->
+    var map = L.map('map').setView([-5.367016, 105.317890], 15);
+    <!-- BASEMAP OPENSTREETMAP -->
+    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+     });
+     osm.addTo(map);
+      <!-- BASEMAP ESRI -->
+var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    });
+    Esri_WorldImagery.addTo(map);
+    <!-- POSISI GEDUNG GKU 1 -->
+    //L.marker([ -5.360910 , 105.310579 ]).addTo(map);
+    <!-- POSISI LABTEK 1 ITERA -->
+    //L.marker([ -5.360316 , 105.310327 ]).addTo(map);
+    <!-- POSISI LABTEK 2 ITERA -->
+    //L.marker([ -5.361514 , 105.310473 ]).addTo(map);
+    <!-- BUNDARAN YANG SERING SAYA LANGGAR ATURAN SAAT BERLALU LINTAS DI ITERA -->
+    var bundaran = L.circle([ -5.363156, 105.312634], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 20
+    }).addTo(map);
+    <!-- BUNDARAN INI JUGA SERING SAYA LANGGAR SETELAH SELESAI KULIAH DI GKU 2 -->
+    var bundaran = L.circle([-5.360813, 105.314847], {
+    color: 'green',
+    fillColor: '#ffffff',
+    fillOpacity: 0.5,
+    radius: 35
+    }).addTo(map);
+    <!-- POLIGON BANGUNAN  GEDUNG F -->
+    var polygon = L.polygon([
+    [-5.359799, 105.315831],
+    [-5.359957, 105.315831],
+    [-5.359957, 105.315571],
+    [-5.360474, 105.315571],
+    [-5.360474, 105.315401],
+    [-5.359635, 105.315401],
+    [-5.359635, 105.315571],
+    [-5.359799, 105.315571]
+    ]).addTo(map);
+
+
+    <!-- MENAMPILKAN NAMA GEDUNG LABTEK 2 -->
+    var LABTEK2 = L.marker([-5.361514 , 105.310473]);
+    var namalabtek2 = LABTEK2.bindPopup("Gedung LABTEK 2").openPopup()
+    namalabtek2.addTo(map);
+    <!-- MENAMPILKAN NAMA GKU 1 -->
+    var GKU1 = L.marker([-5.360910 , 105.310579]);
+    var namagku1 = GKU1.bindPopup("Gedung GKU 1").openPopup()
+    namagku1.addTo(map);
+    <!-- MENAMPILKAN NAMA LABTEK 1 -->
+    var LABTEK1 = L.marker([-5.360316 , 105.310327]);
+    var namalabtek1 = LABTEK1.bindPopup("Gedung LABTEK 1").openPopup()
+    namalabtek1.addTo(map);
+    <!-- MENAMPILKAN NAMA LABTEK 3 -->
+    var LABTEK3 = L.marker([-5.360326345938591, 105.30922149232568]);
+    var namalabtek3 = LABTEK3.bindPopup("Gedung LABTEK 3").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA GEDUNG A -->
+    var GEDUNGA = L.marker([-5.357863905536724, 105.31441445694506]);
+    var namagedunga = GEDUNGA.bindPopup("Gedung A").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA GEDUNG B -->
+    var GEDUNGB = L.marker([-5.357882428652572, 105.3153000263884]);
+    var namagedungb = GEDUNGB.bindPopup("Gedung B").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA GEDUNG C -->
+    var GEDUNGC = L.marker([-5.358349005873539, 105.31364630282914]);
+    var namagedungc = GEDUNGC.bindPopup("Gedung C").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA GEDUNG D -->
+    var GEDUNGD = L.marker([-5.358737990882896, 105.31351607203273]);
+    var namagedungd = GEDUNGD.bindPopup("Gedung D").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA GEDUNG E -->
+    var GEDUNGE = L.marker([-5.360053128850763, 105.3155216264255]);
+    var namagedunge = GEDUNGE.bindPopup("Gedung E").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA GEDUNG F -->
+    var GEDUNGF = L.marker([-5.361353445580143, 105.31379513803319]);
+    var namagedungf = GEDUNGF.bindPopup("Gedung F").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA GKU 2 -->
+    var GKU2 = L.marker([-5.360161630723519, 105.31408175668783]);
+    var namagku2 = GKU2.bindPopup("GKU 2").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA Galeri ITERA -->
+    var GaleriITERA = L.marker([-5.357989754801538, 105.3155459603684]);
+    var namagaleriitera = GaleriITERA.bindPopup("Galeri ITERA").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA Poliklinik ITERA -->
+    var PoliklinikITERA = L.marker([-5.357746734238417, 105.31595335738575]);
+    var namapoliklinikitera = PoliklinikITERA.bindPopup("Poliklinik ITERA").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA Kantin BKL ITERA -->
+    var KANTIN1 = L.marker([-5.357671555197166, 105.31645733558787]);
+    var namakantin1 = KANTIN1.bindPopup("Kantin BKL ITERA").openPopup()
+    namalabtek3.addTo(map);
+    <!-- MENAMPILKAN NAMA Masjid At-Tanwir -->
+    var MAS1 = L.marker([-5.356761550810726, 105.31879577540488]);
+    var namamas1 = MAS1.bindPopup("Masjid At-Tanwir").openPopup()
+    namalabtek3.addTo(map);
+    var baseMaps = {
+	"OSM":osm,
+	"ESRI":Esri_WorldImagery,
+    };
+    var overlayMaps = {
+	"GKU 1" : GKU1,
+    "LABTEK 1":LABTEK1,
+    "LABTEK 2":LABTEK2,
+    "LABTEK 3":LABTEK3,
+    "Gedung A":GEDUNGA,
+    "Gedung B":GEDUNGB,
+    "Gedung C":GEDUNGC,
+    "Gedung D":GEDUNGD,
+    "Gedung E":GEDUNGE,
+    "Gedung F":GEDUNGF,
+    "GKU 2":GKU2,
+    "Galeri ITERA":GaleriITERA,
+    "Poliklinik ITERA":PoliklinikITERA,
+    "Kantin BKL ITERA":KANTIN1,
+    "Masjid At-Tanwir":MAS1,
+    };
+
+map.removeLayer(GKU1)
+map.removeLayer(LABTEK1)
+map.removeLayer(LABTEK2)
+//map.removeLayer(bundaranGKU)
+//map.removeLayer(polygon)
+
+L.control.layers(baseMaps,overlayMaps, {collapsed : false}).addTo(map);
+</script>
+    </script>
+
+    </html>
